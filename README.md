@@ -1,3 +1,3 @@
 # Google Software Product Sprint
 
-This repo contains my portfolio and SPS projects.
+This repo contains Yinlin's portfolio and SPS projects.
