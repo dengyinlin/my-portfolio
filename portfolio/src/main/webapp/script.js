@@ -36,9 +36,36 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
+function getComments() {
+    
+  fetch('/comment').then(response => response.json()).then((comments) => {
+    console.log('Got here!');
+    console.log(comments);
+    const listElement = document.getElementById('comments-container');
+    listElement.innerHTML = '';
+    console.log(comments);
+    var i, cLen;
+    cLen = comments.length;
+    for (i = 0; i < cLen; i++) {
+        listElement.appendChild(
+            createListElement(comments[i])
+        );
+    }
+  });
+}
 
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
+/*
 function getRandomQuoteUsingArrowFunctions() {
   fetch('/random-quote').then(response => response.text()).then((quote) => {
     document.getElementById('quote-container').innerText = quote;
   });
 }
+*/
+
+

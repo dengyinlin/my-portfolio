@@ -14,6 +14,7 @@
 
 package com.google.sps.servlets;
 
+import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
@@ -22,24 +23,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet("/random-quote")
+@WebServlet("/comment")
 public class DataServlet extends HttpServlet {
 
-  private List<String> quotes;
+  private List<String> comments;
 
   @Override
   public void init() {
-    quotes = new ArrayList<>();
-    quotes.add("A man's face is his autobiography."
-        + " A woman's face is her work of fiction. - Oscar Wilde");
-    quotes.add("One of the few certainties in life is that"
-        + " persons of certainty should certainly be avoided. - Willy Russell");
+    comments = new ArrayList<>();
+    comments.add("Guten Tag!");
+    comments.add("你好！");
+    comments.add("Hello!");
   }
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String quote = quotes.get((int) (Math.random() * quotes.size()));
-    response.setContentType("text/html;");
-    response.getWriter().println(quote);
+    String json = convertToJsonUsingGson(comments);
+    response.setContentType("application/json;");
+    response.getWriter().println(json);
+  }
+  /**
+   * Converts a ServerStats instance into a JSON string using the Gson library. Note: We first added
+   * the Gson library dependency to pom.xml.
+   */
+  private String convertToJsonUsingGson(List<String> comments) {
+    Gson gson = new Gson();
+    String json = gson.toJson(comments);
+    return json;
   }
 }
