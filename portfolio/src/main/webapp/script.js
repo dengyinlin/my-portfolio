@@ -44,20 +44,18 @@ function getComments() {
     const listElement = document.getElementById('comments-container');
     listElement.innerHTML = '';
     console.log(comments);
-    var i, cLen;
-    cLen = comments.length;
-    for (i = 0; i < cLen; i++) {
+    comments.forEach((comment) => {
         listElement.appendChild(
-            createListElement(comments[i])
+            createListElement(comment)
         );
-    }
+    })
   });
 }
 
 /** Creates an <li> element containing text. */
-function createListElement(text) {
+function createListElement(post) {
   const liElement = document.createElement('li');
-  liElement.innerText = text;
+  liElement.innerText = post.content;
   return liElement;
 }
 /*
