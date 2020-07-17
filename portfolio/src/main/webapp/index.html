@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body onload="getComments()">
+  <body onload="onLoadFunction()">
     <div id="content">
       <h1>Yinlin Deng's Portfolio</h1>
       <p>I was born in 1999 in Guangdong, and my animal zodiac is rabbit.</p>
@@ -35,6 +35,8 @@
       <h1>Comment</h1>
       
       <div id="comments-container"> </div>
+
+      <div id="comment-form" style="display:none">
       <form action="/comment" method="POST">
         <p> Leave a comment: </p>
         Your name: <input type="text" name="name-input" value="Anonymous"></input>
@@ -44,6 +46,10 @@
 
         <input type="submit"/>
       </form>
+      </div>
+      <div style="display:none" id="login-link">
+        <a href='/login'>Login</a> to leave a comment.
+      </div>
     </div>
   </body>
 </html>

@@ -36,9 +36,25 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
+function onLoadFunction() {
+  getComments();
+  fetch('/loginstate').then(response => response.json()).then((isLogin) => {
+    console.log('check if user login : ', isLogin);
+    if (isLogin) {
+      const element = document.getElementById('comment-form');
+      element.style.display = 'block';
+    }
+    else {
+      const element = document.getElementById('login-link');
+      console.log(' current link visibility : ', element.style.display);
+      element.style.display = 'block';
+      console.log(' current link visibility : ', element.style.display);
+    }
+  });
+}
 function getComments() {
-    
   fetch('/comment').then(response => response.json()).then((comments) => {
+
     console.log('Got here!');
     console.log(comments);
     const listElement = document.getElementById('comments-container');
@@ -48,8 +64,8 @@ function getComments() {
         listElement.appendChild(
             createListElement(comment)
         );
-    })
-  });
+    });
+  })
 }
 
 /** Creates an <li> element containing text. */
