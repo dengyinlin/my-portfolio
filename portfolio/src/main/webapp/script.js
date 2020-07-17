@@ -56,6 +56,8 @@ function getComments() {
 function createListElement(post) {
   const liElement = document.createElement('li');
   liElement.innerText = post.content;
+  // const liElement = document.createElement('span');
+  // liElement.innerText = post.username;
   return liElement;
 }
 /*

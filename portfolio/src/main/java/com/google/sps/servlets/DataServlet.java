@@ -52,10 +52,11 @@ public class DataServlet extends HttpServlet {
     List<Post> posts = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
+      String username = (String) entity.getProperty("username");
       String content = (String) entity.getProperty("content");
       long timestamp = (long) entity.getProperty("timestamp");
 
-      Post post = new Post(id, content, timestamp);
+      Post post = new Post(id, username, content, timestamp);
       posts.add(post);
     }
 
@@ -66,10 +67,12 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Ge the input from the form.
+    String username = getParameter(request, "name-input", "Anonymous");
     String text = getParameter(request, "text-input", "");
     long timestamp = System.currentTimeMillis();
 
     Entity post = new Entity("Post");
+    post.setProperty("username", username);
     post.setProperty("content", text);
     post.setProperty("timestamp", timestamp);
     

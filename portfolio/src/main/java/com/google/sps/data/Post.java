@@ -18,11 +18,13 @@ package com.google.sps.data;
 public final class Post {
 
   private final long id;
+  private final String username;
   private final String content;
   private final long timestamp;
 
-  public Post(long id, String content, long timestamp) {
+  public Post(long id, String username, String content, long timestamp) {
     this.id = id;
+    this.username = username;
     this.content = content;
     this.timestamp = timestamp;
   }

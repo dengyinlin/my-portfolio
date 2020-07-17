@@ -28,18 +28,17 @@
       <p>Click here to get a random quote:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
-
-      <p>Click here to see another random quote:</p>
-      <button onclick="getRandomQuoteUsingArrowFunctions()">Fetch a quote!</button>
-      <div id="quote-container"></div>
       
       <p>From my favorite TV Series White Collar! </p>
       <image src="images/Neal-Caffrey-white-collar.jpg" width="30%"/>
-
+      
       <h1>Comment</h1>
+      
       <div id="comments-container"> </div>
       <form action="/comment" method="POST">
         <p> Leave a comment: </p>
+        Your name: <input type="text" name="name-input" value="Anonymous"></input>
+        <br/><br/>
         <textarea name="text-input">Comment here... </textarea>
         <br/><br/>
 
