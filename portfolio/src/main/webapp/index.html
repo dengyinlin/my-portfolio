@@ -6,13 +6,50 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="onLoadFunction()">
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
+      <h1>Yinlin Deng's Portfolio</h1>
+      <p>I was born in 1999 in Guangdong, and my animal zodiac is rabbit.</p>
+      <p>Here is part of a Chinese painting by Cui Bai.</p>
+      <image src="images/rabbit_Cuibai_Shuangxitu.png"/>
+
+      <p>I am currently a fourth-year student majoring in Computer Science. 
+          I have broad range of interest ranging from machine learning, algorithms 
+          to computational neural-science.
+          As far as my individual interests, I started playing volleyball in high school 
+          and volleyball has given me a lot to love and appreciate ever since. 
+          </p>
+
+      <p>My github: https://github.com/dengyinlin/</p>
+
+
+      <h1>Random Quotes</h1>
+      
+      <p>Click here to get a random quote:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
+      
+      <p>From my favorite TV Series White Collar! </p>
+      <image src="images/Neal-Caffrey-white-collar.jpg" width="30%"/>
+      
+      <h1>Comment</h1>
+      
+      <div id="comments-container"> </div>
+
+      <div id="comment-form" style="display:none">
+      <form action="/comment" method="POST">
+        <p> Leave a comment: </p>
+        Your name: <input type="text" name="name-input" value="Anonymous"></input>
+        <br/><br/>
+        <textarea name="text-input">Comment here... </textarea>
+        <br/><br/>
+
+        <input type="submit"/>
+      </form>
+      </div>
+      <div style="display:none" id="login-link">
+        <a href='/login'>Login</a> to leave a comment.
+      </div>
     </div>
   </body>
 </html>
